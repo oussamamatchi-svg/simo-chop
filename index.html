@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simo Shop | أحذية عصرية وجودة عالية - برشيد</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Righteous&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            /* خلفية معتمدة على صورة خارجية */
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+                url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-family: 'Righteous', cursive;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            letter-spacing: 2px;
+            font-weight: 400;
+            /* Righteous has its own weight */
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            /* Gradient Text Effect */
+            background: linear-gradient(to right, #fff, #f472b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .hero .cta-btn {
+            background: #e11d48;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.4);
+            transition: all 0.35s ease;
+        }
+
+        .hero .cta-btn:hover {
+            background: #be123c;
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 15px 40px rgba(225, 29, 72, 0.5);
+        }
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        header h2 {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: white;
+            font-family: 'Righteous', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #111827;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #f472b6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            color: #1e40af;
+            margin: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ec4899;
+            margin-bottom: 1.2rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.4rem;
+            margin: 1rem 0;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #4b5563;
+            margin: 1.2rem 0;
+            line-height: 1.8;
+        }
+
+        .author {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 1.15rem;
+        }
+
+        .author span {
+            font-weight: 400;
+            color: #6b7280;
+            font-size: 0.95rem;
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+            color: #1e293b;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #e11d48;
+            margin: 0.8rem 0;
+        }
+
+        .add-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #2563eb;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem 1.8rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            text-align: center;
+            transition: all 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: #ec4899;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
+        /* Whatsapp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 8px 25px rgba(37, 213, 102, 0.45);
+            z-index: 999;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            background: #20b858;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 5rem;
+        }
+
+        @media (max-width:768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.4rem;
+            }
+
+            nav a {
+                margin: 0 0.9rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Map Container */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Simo Shop</h1>
+            <p>أحذية عصرية • جودة مضمونة • أسعار تنافسية في برشيد (قرب صيدلية بدر)</p>
+            <a href="https://wa.me/212609988014?text=مرحبا%20سيمو%20شوب%20،%20أريد%20أشوف%20الجديد%20عندكم..."
+                class="cta-btn">
+                <i class="fab fa-whatsapp"></i> اطلب الآن عبر واتساب
+            </a>
+        </div>
+    </div>
+
+    <header>
+        <h2>Simo Shop</h2>
+    </header>
+
+    <nav>
+        <a href="#products">المنتجات</a>
+        <a href="#testimonials">آراء العملاء</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <div class="container">
+
+        <section id="products">
+            <h2 class="section-title">تشكيلتنا الجديدة</h2>
+            <div class="products-grid">
+                <!-- المنتج 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1605733513597-7c3a4a0c9628?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء رياضي">
+                    <div class="product-info">
+                        <h3>حذاء رياضي مودرن</h3>
+                        <div class="price">299 درهم</div>
+                        <button class="add-btn">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- المنتج 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جري أحمر">
+                    <div class="product-info">
+                        <h3>حذاء جري احترافي</h3>
+                        <div class="price">349 درهم</div>
+                        <button class="add-btn">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- المنتج 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء كاجوال">
+                    <div class="product-info">
+                        <h3>حذاء كاجوال أنيق</h3>
+                        <div class="price">279 درهم</div>
+                        <button class="add-btn">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- المنتج 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء نايك">
+                    <div class="product-info">
+                        <h3>حذاء رياضي مريح</h3>
+                        <div class="price">329 درهم</div>
+                        <button class="add-btn">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- منتج إضافي 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جديد">
+                    <div class="product-info">
+                        <h3>موديل جديد 1</h3>
+                        <div class="price">-- درهم</div>
+                        <button class="add-btn">قريباً</button>
+                    </div>
+                </div>
+                <!-- منتج إضافي 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جديد">
+                    <div class="product-info">
+                        <h3>موديل جديد 2</h3>
+                        <div class="price">-- درهم</div>
+                        <button class="add-btn">قريباً</button>
+                    </div>
+                </div>
+                <!-- منتج إضافي 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جديد">
+                    <div class="product-info">
+                        <h3>موديل جديد 3</h3>
+                        <div class="price">-- درهم</div>
+                        <button class="add-btn">قريباً</button>
+                    </div>
+                </div>
+                <!-- منتج إضافي 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جديد">
+                    <div class="product-info">
+                        <h3>موديل جديد 4</h3>
+                        <div class="price">-- درهم</div>
+                        <button class="add-btn">قريباً</button>
+                    </div>
+                </div>
+                <!-- منتج إضافي 5 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جديد">
+                    <div class="product-info">
+                        <h3>موديل جديد 5</h3>
+                        <div class="price">-- درهم</div>
+                        <button class="add-btn">قريباً</button>
+                    </div>
+                </div>
+                <!-- منتج إضافي 6 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="حذاء جديد">
+                    <div class="product-info">
+                        <h3>موديل جديد 6</h3>
+                        <div class="price">-- درهم</div>
+                        <button class="add-btn">قريباً</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">من نحن</h2>
+            <div
+                style="background:white; padding:2.5rem; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.08); text-align:center; font-size:1.2rem;">
+                <p>مرحباً بكم في <strong style="font-family: 'Righteous'; font-size: 1.3rem;">Simo Shop</strong> –
+                    وجهتكم الأولى للأحذية العصرية في برشيد (قرب صيدلية بدر).<br><br>نختار لكم
+                    أفضل الموديلات بجودة عالية وأسعار تناسب الجميع.<br>هدفنا: رضاكم مع كل خطوة.</p>
+            </div>
+        </section>
+
+        <!-- ★ قسم آراء العملاء ★ -->
+        <section id="testimonials">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="quote">« الأحذية مريحة جدًا والجودة ممتازة، أفضل من المتاجر الكبيرة! »</p>
+                    <div class="author">فاطمة الزهراء <span>برشيد</span></div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="quote">« خدمة سريعة وأسعار مناسبة، سأطلب مرة أخرى بإذن الله »</p>
+                    <div class="author">محمد أمين <span>الجديدة</span></div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="quote">« تصاميم عصرية ومريحة للاستخدام اليومي، شكرًا سيمو شوب! »</p>
+                    <div class="author">سارة بنعمر <span>برشيد</span></div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="quote">« أحذية أولادي أصبحت أجمل وأقوى، توصية من القلب »</p>
+                    <div class="author">عبد الرحيم <span>المحمدية</span></div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="info-grid" id="contact">
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>موقعنا</h3>
+                <p>برشيد، الحي الحسني<br>قرب صيدلية بدر</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>اتصل بنا</h3>
+                <p>0609-988014<br>oussama.matchi@gmail.com</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-clock"></i>
+                <h3>أوقات العمل</h3>
+                <p>يومياً: 10:00 ص - 10:00 م<br>الجمعة: 4:00 م - 11:00 م</p>
+            </div>
+        </div>
+
+        <!-- Google Map -->
+        <h2 class="section-title">موقعنا على الخريطة</h2>
+        <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=Pharmacy+Badr+Berrechid&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%" height="100%" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/212609988014?text=مرحبا%20،%20شفت%20موقع%20سيمو%20شوب%20وأبغى%20أطلب..."
+        class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>© 2026 <span style="font-family: 'Righteous';">Simo Shop</span> – برشيد | جميع الحقوق محفوظة</p>
+        <p>للطلبات والاستفسارات: 0609-988014</p>
+    </footer>
+
+</body>
+
+</html>
